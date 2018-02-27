@@ -43,7 +43,7 @@ Maybe there'll be a little bit of it.
 ![math](https://media.giphy.com/media/3o7aCWDyW0PJCsxHna/giphy.gif)
 
 
-## Artificial Intelligence and Machine Learning (with a grain of salf of Data Science)
+## Artificial Intelligence and Machine Learning (with a bit of Data Science)
 I don't know a single thing about these topics and I find them the most interesting
 that I've ever heard about, even for a little. If I do learn something, lemme share it with you.
 ![mlai](https://media.giphy.com/media/vYstuBjPOVRNm/giphy.gif)
