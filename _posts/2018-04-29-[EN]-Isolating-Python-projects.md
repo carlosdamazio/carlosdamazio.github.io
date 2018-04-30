@@ -105,7 +105,7 @@ legacy project is broken.
 
 ## Solution: Virtual Environments
 
-After reading this cases, you might come to a conclusion: IT'S A FREAKING MESS.
+After reading these cases, you might come to a conclusion: IT'S A FREAKING MESS.
 
 Programming is not hard because you have to code. It's hard because you keep switching projects and
 have to get your head around your thoughts to know where you were coding on each one. Mind you that
