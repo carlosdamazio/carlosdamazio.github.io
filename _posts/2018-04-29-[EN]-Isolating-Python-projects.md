@@ -107,7 +107,7 @@ legacy project is broken.
 
 After reading this cases, you might come to a conclusion: IT'S A FREAKING MESS.
 
-Programming is not hard because you have to code. It's hard because you keep switching project and
+Programming is not hard because you have to code. It's hard because you keep switching projects and
 have to get your head around your thoughts to know where you were coding on each one. Mind you that
 you need to memorize all the dependencies for each project. Imagine that.
 
