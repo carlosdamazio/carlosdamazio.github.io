@@ -125,6 +125,8 @@ But we can't simply pass this list to the function. We need to pass it as normal
 want to do it because it's boring and dreadful. **Note that we're not allowed to change
 the function anymore.**
 
+![Imnoteven](https://media.giphy.com/media/jsW1gaiEGnVzW/giphy.gif)
+
 Examples?
 
 {% highlight python %}
@@ -161,5 +163,7 @@ The main difference of packing operator and unpacking operator is when it's used
 
 * If it's used in a function call, it's an unpacking operator.
 * If it's used on the function definition, it's a packing operator.
+
+![Imnoteven](https://media.giphy.com/media/hGMZSPI8XfFf2/giphy.gif)
 
 That's it folks! See ya next time!
