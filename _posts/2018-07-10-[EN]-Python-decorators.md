@@ -3,13 +3,11 @@ It's been a while ~~2 months~~ since I made a post about Python.
 ![Imnoteven](https://media.giphy.com/media/X0oyaVY9dOiBy/giphy.gif)
 
 Now I'll tackle for a brief moment on the topic about dealing with
-Decorators on Python of which are on a Linux system environment.
-
-If you thought that I'd stop with the gifs, you got it wrong.
+Decorators on Python. If you thought that I'd stop with the gifs, you got it wrong.
 ## Decorators? What's the matter of not using them?
 
 On a formal manner, a decorator is a pattern used to extend a certain
-behaviour on a function without actually changing it explicitelly. In a way, you wrap
+behaviour on a function without actually changing it explicitly. In a way, you wrap
 the function with another function to get the behaviour you want. It's mainly used
 by developers for replicate a certain behaviour to other functions.
 
