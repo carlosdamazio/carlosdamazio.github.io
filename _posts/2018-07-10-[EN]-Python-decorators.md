@@ -147,7 +147,7 @@ def time_decorator(some_func):
 
     def wrapper(*args, **kwargs):
         t1 = time.time()
-        some_func()
+        some_func(*args, **kwargs)
         t2 = time.time()
         print("Time it took: {}".format(t2 - t1))
 
@@ -213,7 +213,7 @@ def time_decorator(some_func):
 
     def wrapper(*args, **kwargs):
         t1 = time.time()
-        some_func()
+        some_func(*args, **kwargs)
         t2 = time.time()
         print("Time it took: {}".format(t2 - t1))
 
