@@ -121,10 +121,6 @@ A programming language may say they have first class functions if they treat the
 coding process (data structure, variables, parameters, etc...). Lucky you, Python is a
 programming language that treats functions as "first class citizens".
 
-![Imnoteven](https://media.giphy.com/media/eLXShXXa8AMso/giphy.gif)
-
-Test it yourself.
-
 {% highlight python %}
 # first_classy.py
 
