@@ -8,12 +8,6 @@ Decorators on Python of which are on a Linux system environment.
 If you thought that I'd stop with the gifs, you got it wrong.
 ## Decorators? What's the matter of not using them?
 
-_If you throw in a function, I'd be something like this:_
-
-![Imnoteven](https://media.giphy.com/media/P3aaEHlnOuj6M/giphy.gif)
-
-_Maybe._
-
 On a formal manner, a decorator is a pattern used to extend a certain
 behaviour on a function without actually changing it explicitelly. In a way, you wrap
 the function with another function to get the behaviour you want. It's mainly used
@@ -108,10 +102,6 @@ more lines to delete and being careful to not delete anything more.
 want to apply this behaviour on, maybe, 30 functions.
 - If you want to change this behaviour on those 30 functions, for any reason,
 you have to look for those 30 functions and change it by hand. _And good luck though._
-
-![Imnoteven](https://media.giphy.com/media/cwTtbmUwzPqx2/giphy.gif)
-
-_This is the face of someone who's going to deal with this code. It could be you or me._
 
 You DON'T need to do these things! Please don't.
 
