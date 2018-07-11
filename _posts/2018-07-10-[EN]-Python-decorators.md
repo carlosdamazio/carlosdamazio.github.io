@@ -181,7 +181,7 @@ _Is this even a decorator?_
 
 Yes it is. It's in it's primal form.
 
-The decorator function receives an function as a parameter and on the inside,
+The decorator function receives a function as a parameter and on the inside,
 we have an inner function "wrapper" that receives the parameters of the function to be decorated.
 When the behaviour is wrapped and set, the outer function returns the inner function, a new
 single function decorated with the behaviour.
