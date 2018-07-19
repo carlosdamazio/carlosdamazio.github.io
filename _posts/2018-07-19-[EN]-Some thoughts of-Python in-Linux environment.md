@@ -11,8 +11,7 @@ about my craft, my tools and help other people. And this is one of those days
 to post something that I find useful.
 
 Today is the day to talk about Linux and how you can handle it's
-environment into Python regarding files, directories and permissions
-(hence, sudo calls). But before jumping directly into it, let's talk
+environment into Python. But before jumping directly into it, let's talk
 about this Python module called **Subprocess**.
 
 ## What is it? How and why is it related to Linux administration anyway?
