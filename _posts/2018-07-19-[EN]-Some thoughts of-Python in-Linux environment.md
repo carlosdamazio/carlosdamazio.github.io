@@ -34,8 +34,8 @@ out = subprocess.run(["ls", "-lha", "nope_nopedity_nope"], capture_output=True)
 
 print(out)
 '''
-Outputs: CompletedProcess(args=['ls', '-lha', 'nonono'], returncode=2,
-         stdout=b'', stderr=b"ls: cannot access 'nonono': No such file or directory\n")
+Outputs: CompletedProcess(args=['ls', '-lha', 'nope_nopedity_nope'], returncode=2,
+         stdout=b'', stderr=b"ls: cannot access 'nope_nopedity_nope': No such file or directory\n")
 '''
 
 print(out.returncode)
@@ -45,7 +45,7 @@ Outputs: 2
 
 print(out.stderr)
 '''
-Outputs: b"ls: cannot access 'nonono': No such file or directory\n"
+Outputs: b"ls: cannot access 'nope_nopedity_nope': No such file or directory\n"
 '''
 
 subprocess.run(["mkdir", "nope_nopedity_nope"])\
