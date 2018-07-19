@@ -72,8 +72,8 @@ without importing wrappers and creating classes.
 It's pretty straight forward, right? Just open the file with the statement "with" and
 etcetera. But what happens if the file is owned by some other user? What if it's owned by **root**
 and the group **root**? When you run a Python script, it's still being ran by your own user which, even though it's in
-the **sudoers**, it's still need to be promped a password, and an application which requires to enter
-the sudo password every once in a while it's no good.
+the **sudoers**, it still needs to be promped a password, and an application which requires to enter
+the sudo password every once in a while is no good.
 
 I looked for solutions, people were storing their sudo passwords in environment variables and calling
 with os.environ['SUDO_PASSWORD'] or storing their passwords within the code were totally insecure! We need
