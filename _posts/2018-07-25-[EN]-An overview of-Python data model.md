@@ -204,7 +204,7 @@ class Latitude(object):
             sec = 60 - sec
 
             hemisphere = 'S' if self.hemisphere.lower() == 'n' and \
-                other.hemisphere.lower() == 'n' else hemisphere = 'N'
+                other.hemisphere.lower() == 'n' else 'N'
 
         return Latitude(deg, minu, sec, hemisphere)
 
