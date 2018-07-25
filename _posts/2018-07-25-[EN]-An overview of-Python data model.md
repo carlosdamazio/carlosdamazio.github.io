@@ -4,7 +4,7 @@ it's so simple that it doesn't seem right. But in reality, what conditions
 should one achieve to being considered such thing?
 
 Reading some answers, I came across some thoughts of differences that we may
-do in Python that is syntatically impossible in some languages. In this C
+do in Python that is syntactically impossible in some languages. In this C
 code, we are summing up array values and then print them up on screen along with their lenghts:
 
 {% highlight c %}
