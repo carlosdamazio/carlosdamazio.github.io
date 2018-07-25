@@ -33,7 +33,7 @@ int main(void) {
 }
 {% endhighlight %}
 
-The for syntax is where i'd like to point out when we're running through
+The for syntax is where I'd like to point out when we're running through
 the array. Now take a look at the same thing Python does:
 
 {% highlight python %}
