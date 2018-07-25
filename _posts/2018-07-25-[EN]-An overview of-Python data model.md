@@ -85,7 +85,7 @@ when we create classes, we often use a "constructor" (AKA __init__), you knew th
 a class with parameters as set into this method, you'd create a class with those parameters.
 
 These "dunder methods" implements behaviours, behaviours that can interact with the core language itself.
- __init__, when called upon a class instanciation, customizes
+ __init__, when called upon a class instantiation, customizes
 an instance __with__ the set of parameters (see __new__ method for creating a cls instance).
 Dunder methods are the core of Python Data Model, which we can see it as an API for objects to
 interact with the most Python resources without reinventing the wheel.
