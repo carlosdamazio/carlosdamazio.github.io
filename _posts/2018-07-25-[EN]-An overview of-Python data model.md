@@ -28,7 +28,7 @@ int main(void) {
     double array_elem [] = {10.1, 20.2, 30.3, 40.4};
     double sum = array_sum(array_elem, sizeof(array_elem)/sizeof(double));
 
-    printf("%d %.2f\n", sizeof(array_elem)/sizeof(double), sum);
+    printf("%lu %.2f\n", sizeof(array_elem)/sizeof(double), sum);
     return 0;
 }
 {% endhighlight %}
