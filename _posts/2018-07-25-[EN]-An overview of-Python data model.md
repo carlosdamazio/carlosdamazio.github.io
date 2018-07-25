@@ -94,8 +94,6 @@ If you ever read my other posts, you know that I love to give examples, because 
 boring! :/
 
 Imagine an library. A really good library (OF BOOKS).
-![](https://media.giphy.com/media/xTiTnslZ0E5sqMbEac/giphy.gif)
-
 
 {% highlight python %}
 # library.py
