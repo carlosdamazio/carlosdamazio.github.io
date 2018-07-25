@@ -5,7 +5,7 @@ should one achieve to being considered such thing?
 
 Reading some answers, I came across some thoughts of differences that we may
 do in Python that is syntactically impossible in some languages. In this C
-code, we are summing up array values and then print them up on screen along with their lenghts:
+code, we are summing up array values and then print them up on screen along with their lengths:
 
 {% highlight c %}
 #include <stdio.h>
