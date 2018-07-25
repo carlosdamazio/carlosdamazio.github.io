@@ -64,7 +64,7 @@ You see? You might realize there's something wrong, doesn't it? If you think abo
 we have <iterable>.length(), but in this case, we would have length(<iterable>).
 
 This is what people see as a Pythonic code, which doesn't follow standard syntax rules but
-more acceptable for the community as a whole. You can do it with pratically everything.
+more acceptable for the community as a whole. You can do it with practically everything.
 The first condition for making such types or objects to behave with the most idiomatic feature
 is to get them programatically to behave with it. And the way to do it is looking at
 the **Python Data Model**.
@@ -79,12 +79,12 @@ the **Python Data Model**.
 >Luciano Ramalho - "Fluent Python" (2015)
 
 As quoted above, when we call len(something) instead of
-something.length() is pratically the secret of what we might call "pythonic". Objects that
-can behave accordingly with the true behaviour of Python as types can get to. You probably realized it
+something.length() is practically the secret of what we might call "pythonic". Objects that
+can behave accordingly with the true behavior of Python as types can get to. You probably realized it
 when we create classes, we often use a "constructor" (AKA __init__), you knew that if you initialize
 a class with parameters as set into this method, you'd create a class with those parameters.
 
-These "dunder methods" implements behaviours, behaviours that can interact with the core language itself.
+These "dunder methods" implements behaviors, behaviors that can interact with the core language itself.
  __init__, when called upon a class instantiation, customizes
 an instance __with__ the set of parameters (see __new__ method for creating a cls instance).
 Dunder methods are the core of Python Data Model, which we can see it as an API for objects to
@@ -252,7 +252,7 @@ Exception: Cannot add latitudes with different hemispheres.
 '''
 {% endhighlight %}
 
-Did you notice something about this object behaviour? Maybe it can be summed?
+Did you notice something about this object behavior? Maybe it can be summed?
 Or we have a printable representation to it?
 
 ![](https://media.giphy.com/media/LxPsfUhFxwRRC/giphy.gif)
