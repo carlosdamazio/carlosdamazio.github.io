@@ -44,7 +44,7 @@ size = 0
 
 # First try. Not pythonic enough.
 
-for i in range(0, 3):
+for i in range(0, 4):
     summed += array_elem[i]
 
 # Second try. Still not pythonic enough.
