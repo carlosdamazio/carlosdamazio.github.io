@@ -105,6 +105,6 @@ Quantum Computing being as common as our transistors are in our computers. But
 one thing is important:
 
 I'll keep my passion alive as long as I can, and even when it halts, I'll have
-this same conversation again with myself until I cannot longer do it.
+this same conversation again with myself until I can no longer do it.
 
 ![Imnoteven](https://media.giphy.com/media/xFkgcfTbpuyByVLajz/giphy.gif)
