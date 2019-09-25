@@ -13,7 +13,7 @@ title                    : "Updraft"
 title_separator          : ""
 name                     : "Updraft"
 description              : "Because we ride the updrafts."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://blog.damazio.dev"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -92,7 +92,7 @@ analytics:
 author:
   name             : "Carlos Damázio"
   avatar           : "/assets/images/avatar.jpg"
-  bio              : "Software Developer, Web Developer, Infrastructure Analyst and DevOps."
+  bio              : "Desenvolvedor pioneiro no paradigma 'Programação Orientada à Ódio'."
   location         : "Brasília, Distrito Federal, Brazil"
   email            : "carlos.edamazio@gmail.com"
   uri              :
@@ -115,7 +115,7 @@ author:
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr           :
-  twitter          :
+  twitter          : "carlosdamnazio"
   vine             :
   weibo            :
   xing             :
