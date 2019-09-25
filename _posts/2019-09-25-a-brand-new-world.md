@@ -1,8 +1,6 @@
 ---
 title: "Rebootando o blog"
-lang: br
-lang-ref: rebootando-o-blog
-categories: [blog, personal]
+categories: [blog]
 tags: [personal, blogging, entry]
 ---
 
