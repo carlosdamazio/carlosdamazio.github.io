@@ -31,7 +31,7 @@
 
     <div class="page__footer">
       <footer>
-        {% if page.layout != 'index' %}
+        {% if page.layout == 'single' %}
           {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
           {% if posts.size == 0 %}
            {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
@@ -46,7 +46,8 @@
         </ul>
     </footer>
     {% endif %}
-{% endif %}
+    {% endif %}
+
         {% include footer/custom.html %}
         {% include footer.html %}
       </footer>
