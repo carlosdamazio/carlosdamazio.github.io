@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Rebootando o blog"
 lang: br
 lang-ref: rebootando-o-blog
