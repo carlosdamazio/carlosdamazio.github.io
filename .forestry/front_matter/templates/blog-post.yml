@@ -32,3 +32,5 @@ fields:
 - type: text
   name: description
   label: description
+pages:
+- _posts/teste-do-meu-blog.md
