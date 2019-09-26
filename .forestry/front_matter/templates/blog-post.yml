@@ -2,6 +2,11 @@
 label: Blog Post
 hide_body: false
 fields:
+- name: project
+  type: text
+  config:
+    required: false
+  label: Project
 - type: text
   name: title
   label: title
