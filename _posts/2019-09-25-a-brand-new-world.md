@@ -1,7 +1,15 @@
 ---
-title: "Rebootando o blog"
-categories: [blog]
-tags: [personal, blogging, entry]
+
+title: "Rebootando esse blog (de novo)"
+layout: post
+date: 2019-09-25 22:48
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- personal 
+category: blog
+author: carlosdamazio
+description: Markdown summary with different options
 ---
 
 Olá a todos.
