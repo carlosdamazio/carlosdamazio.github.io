@@ -1,0 +1,34 @@
+---
+label: Blog Post
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- name: project
+  type: boolean
+  label: project
+- type: text
+  name: layout
+  label: layout
+- type: datetime
+  name: date
+  label: date
+- type: file
+  name: image
+  label: image
+- type: boolean
+  name: headerImage
+  label: headerImage
+- type: list
+  name: tag
+  label: tag
+- type: text
+  name: category
+  label: category
+- type: text
+  name: author
+  label: author
+- type: text
+  name: description
+  label: description
