@@ -1,4 +1,5 @@
-source "https://rubygems.org"
-gemspec
-gem "jekyll-remote-theme"
-gem "pygments.rb"
+source 'http://rubygems.org'
+
+gem 'github-pages'
+gem 'html-proofer'
+gem 'jekyll-admin'
