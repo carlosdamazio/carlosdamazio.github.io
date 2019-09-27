@@ -49,13 +49,15 @@ A Engenharia de Dados entrega esses dados que provém de sistemas complexos e gi
 
 Enfim, são várias utilidade na área que eu me perco em falar neles. Se nada disso te convencer, sugiro que leia alguns artigos relacionados a Big Data ou Streaming Data. Você vai ficar surpreso com os cases que a galera tenta resolver na ciência.
 
+> ## _Massa, mas existe um certo processo que a Engenharia de Dados tenta se encaixar?_
+
+Sim, e essa base já existia bem antes. Se você compreender o que é o processo de ETL (Extract-Transform-Load), você vai amar isso. Na Engenharia de Dados, temos um conceito de _Data Pipeline_, que é uma esteira de processamento de dados que são provenientes de múltiplas fontes
+
 > ## _Poxa, maravilha! Mas como eu vou saber que isso não vai virar apenas um "fad" e morrer com o tempo?_
 
 ![](https://media.giphy.com/media/pPhyAv5t9V8djyRFJH/giphy.gif)
 
 Todas as coisas tem o seu devido valor e resolvem um  problema em específico. Mas se você está preocupado em saber se isso é um _fad_ do momento, você não está entendendo com o que a nossa área realmente se preocupa: é em resolver a porcaria do problema. Quanto mais coisa você souber para resolver problemas, MELHOR! Mas claro, não vá querer se matar em querer aprender tudo (porque você não vai conseguir), aprenda uma coisa e siga em frente.
-
-Agora, entrando no mérito do _fad_, tudo morre e tudo fica obsoleto. Mas você vai deixar de aprender algo porque isso vai morrer um dia? Imagina se a gente aplica esse pensamento na nossa vida, olha que idiota e olha o absurdo: a gente vai deixar de viver a vida porque vamos morrer um dia? Vamos deixar de comer porque a gente vai ficar com fome de novo? Entenda gente: a nossa área evolui rápidamente, vocês querendo ou não. Mas se você quiser ficar no _fad_ E morrer no barco naufragando... a escolha é sua.
 
 Você não precisa ser o mais rápido para acompanhar o mercado (lembrando, e vou repetir isso conforme eu for postando por aqui, você NUNCA vai conseguir aprender tudo ou acompanhar tudo), mas nessa maratona, você pode ir mais longe do que alguém que ficou parado.
 
