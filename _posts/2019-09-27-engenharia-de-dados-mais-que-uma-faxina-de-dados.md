@@ -25,7 +25,11 @@ Nas faculdades, há 5 anos atrás, pelo menos, não se falava em Big Data, nem e
 
 > ## _O que é Engenharia de Dados, de fato?_
 
-Para entender, a Engenharia de Dados é para a Ciência de Dados assim como a Infraestrutura é para o Desenvolvimento: parceiros. É a área que trata da infraestrutura do armazenamento e manipulação de dados, de quaisquer tipo: estruturados e não-estruturados, e também da modelagem e disponibilização destes dados. Você pode achar essa definição muito fraca, mas infelizmente o conceito desta área só fazemos ideia do que seja a partir de conceitos adjacentes, não do que ela é de fato.
+Para entender, a Engenharia de Dados é para a Ciência de Dados assim como a Infraestrutura é para o Desenvolvimento: parceiros. 
+
+> É a área que trata da infraestrutura do armazenamento e manipulação de dados, de quaisquer tipo: estruturados e não-estruturados, e também da modelagem e disponibilização destes dados. 
+
+Você pode achar essa definição muito fraca, mas infelizmente o conceito desta área só fazemos ideia do que seja a partir de conceitos adjacentes, não do que ela é de fato.
 
 Provisionando e sustentando soluções para que possam lidar com diferentes tipos de dados, em diferentes perspectivas e diferentes volumes, podendo chegar a milhões de dados por minuto (aonde eu trabalho, eu posso dizer que lido com 600.000 dados por minuto, cerca de 10.000 dados por segundo de throughput sendo parseados, agregados e consolidados com FOLGA). 
 
