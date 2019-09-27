@@ -32,5 +32,3 @@ fields:
 - type: text
   name: description
   label: description
-pages:
-- _posts/2019-09-27-engenharia-de-dados-mais-que-uma-faxina-de-dados.md
