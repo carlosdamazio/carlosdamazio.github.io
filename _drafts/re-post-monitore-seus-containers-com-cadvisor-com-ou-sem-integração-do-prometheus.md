@@ -16,7 +16,7 @@ description: ''
 
 Created: Feb 28, 2019 10:27 AM
 
-Quando o assunto é monitoramento de containers, poucas pessoas costumam confundir a noção do container se algo temporário, por isso não deveríamos nos preocupar com a sua monitoração. Bem, por um lado podemos pensar que não vale a pena por causa do auto-scale das soluções de orquestração, mas grande parte das soluções NÃO precisam de uma solução FULL escalável com orquestração, pois estes não são o *Facebook.* Tomem essa opinião com uma colher de sal, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes virtuais que são críticos, como as soluções containerizadas.
+Quando o assunto é monitoramento de containers, poucas pessoas costumam confundir a noção do container se algo temporário, por isso não deveríamos nos preocupar com a sua monitoração. Bem, por um lado podemos pensar que não vale a pena por causa do auto-scale das soluções de orquestração, mas grande parte das soluções NÃO precisam de uma solução FULL escalável com orquestração, pois estes não são o _Facebook._ Tomem essa opinião com uma colher de sal, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes virtuais que são críticos, como as soluções containerizadas.
 
 Em um projeto que participei anteriormente, após o desenvolvimento e implementação da solução, estava muito difícil de monitorar a operação pela falta de integração dos estados dos containers com as soluções de alerta. E nessa procura, eu encontrei o **cAdvisor**!
 
@@ -30,138 +30,74 @@ Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsear
 
 As únicas coisas que você vai precisar são o Docker e o Docker Compose, nesse caso. Para o modo stand-alone, não é necessário utilizar o Docker Compose, basta rodar um único comando apenas. No meu caso, eu estou fazendo uso pelo fato de estar integrando com o Prometheus containerizado.
 
-Primeiramente, crie o arquivo de configuração do Prometheus, onde você vai apontar os *targets* aos nomes dos containers com suas respectivas portas:
+Primeiramente, crie o arquivo de configuração do Prometheus, onde você vai apontar os _targets_ aos nomes dos containers com suas respectivas portas:
 
     # prometheus.yml
-
     
-
     global:
-
       scrape_interval: 15s
-
       evaluation_interval: 15s
-
     
-
     alerting:
-
       alertmanagers:
-
       - static_configs:
-
         - targets:
-
         # whatever you want
-
     
-
     scrape_configs:
-
       - job_name: 'prometheus'
-
         static_configs:
-
         - targets: \['prometheus:9090'\]
-
           labels:
-
             alias: 'prometheus'
-
     
-
       - job_name: 'cadvisor'
-
         static_configs:
-
         - targets: \['cadvisor:8080'\]
-
           labels:
-
             alias: 'cadvisor'
 
-Com isso fora do caminho, vamos criar o nosso arquivo de docker-compose.yml. Lembrando que devemos setar o nome dos containers porque eles vão ser o FQDN na rede default do Docker. Mapeie o arquivo de configuração do Prometheus no /etc/prometheus/prometheus.yml para sobrescrever o arquivo default do container e também aponte nos *commands* o parâmetro de arquivo de configuração no diretório do container:
+Com isso fora do caminho, vamos criar o nosso arquivo de docker-compose.yml. Lembrando que devemos setar o nome dos containers porque eles vão ser o FQDN na rede default do Docker. Mapeie o arquivo de configuração do Prometheus no /etc/prometheus/prometheus.yml para sobrescrever o arquivo default do container e também aponte nos _commands_ o parâmetro de arquivo de configuração no diretório do container:
 
     version: '3.4'
-
     services:
-
       prometheus:
-
         image: 'prom/prometheus:latest'
-
         container_name: prometheus
-
         volumes:
-
           - ./prometheus.yml:/etc/prometheus/prometheus.yml
-
         commands:
-
           - '--config.file=/etc/prometheus/prometheus.yml'
-
         ports:
-
           - '9090:9090'
-
+    
       cadvisor:
-
         image: 'google/cadvisor:latest'
-
         container_name: cadvisor
-
         volumes:
-
           - /:/rootfs:ro
-
           - /var/run:/var/run:ro
-
           - /sys:/sys:ro
-
           - /var/lib/docker/:/var/lib/docker:ro
-
           - /dev/disk:/dev/disk/:ro
-
         ports:
-
         - '8080:8080'
-
-    
-
-    
 
 Agora, para rodar tudo:
 
     # Docker compose, se você utilizou a integração com o Prometheus
-
-    
-
     docker-compose up
-
     
-
     # Se você quiser rodar no modo stand-alone
-
-    
-
     docker run \\
-
       --volume=/:/rootfs:ro \\
-
       --volume=/var/run:/var/run:ro \\
-
       --volume=/sys:/sys:ro \\
-
       --volume=/var/lib/docker/:/var/lib/docker:ro \\
-
       --volume=/dev/disk/:/dev/disk:ro \\
-
       --publish=8080:8080 \\
-
       --detach=true \\
-
       --name=cadvisor \\
-
       google/cadvisor:latest
 
 \# Finalizando
@@ -178,7 +114,7 @@ cAdvisor - localhost:8080
 
 Você poderá checar a interface da aplicação por conta própria, tente rodar mais containers e verifique as métricas que ela pode fornecer.
 
-Além disso, se você escolheu integrar com o Prometheus, verifique se ele está se conectando com o cAdvisor através do *status → targets*:
+Além disso, se você escolheu integrar com o Prometheus, verifique se ele está se conectando com o cAdvisor através do _status → targets_:
 
 !\[\](-d5cd3b20-708f-47d4-ad0c-448f5cdc0ce9untitled)
 
@@ -191,3 +127,6 @@ Se houver sucesso na conexão, você está pronto(a) para fazer queries sobre es
 Esse foi um repost, pois o post original estava no Medium. Eu removi o post original pelo fato de eu não concordar com as práticas que o pessoal utiliza o meio para abusar do mecanismo de Paywall, que incomoda mesmo um usuário pois este não sabe se o link clicado é para um artigo pago ou gratuito. Existem meios melhores e mais justo para arrecadar.
 
 Obrigado por lerem, e se isso te ajudou, divulguem!
+
+    def wat(wat):
+    	return None
