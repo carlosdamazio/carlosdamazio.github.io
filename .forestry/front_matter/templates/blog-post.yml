@@ -32,3 +32,5 @@ fields:
 - type: text
   name: description
   label: description
+pages:
+- _posts/re-post-monitore-seus-containers-com-cadvisor-com-ou-sem-integração-do-prometheus.md
