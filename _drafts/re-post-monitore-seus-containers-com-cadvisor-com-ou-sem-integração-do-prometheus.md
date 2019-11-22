@@ -12,11 +12,7 @@ author: carlosdamazio
 description: ''
 
 ---
-\# Monitoring containers with Prometheus and cAdvisor
-
-Created: Feb 28, 2019 10:27 AM
-
-Quando o assunto é monitoramento de containers, poucas pessoas costumam confundir a noção do container se algo temporário, por isso não deveríamos nos preocupar com a sua monitoração. Bem, por um lado podemos pensar que não vale a pena por causa do auto-scale das soluções de orquestração, mas grande parte das soluções NÃO precisam de uma solução FULL escalável com orquestração, pois estes não são o _Facebook._ Tomem essa opinião com uma colher de sal, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes virtuais que são críticos, como as soluções containerizadas.
+Quando o assunto é monitoramento de containers, poucas pessoas costumam confundir a noção do container se algo temporário, por isso não deveríamos nos preocupar com a sua monitoração. Bem, por um lado podemos pensar que não vale a pena por causa do auto-scale das soluções de orquestração, mas grande parte das soluções NÃO precisam de uma solução FULL escalável com orquestração, pois estes não são o _Facebook._ Tomem essa opinião com uma colher de sal, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes que são críticos, como as soluções containerizadas.
 
 Em um projeto que participei anteriormente, após o desenvolvimento e implementação da solução, estava muito difícil de monitorar a operação pela falta de integração dos estados dos containers com as soluções de alerta. E nessa procura, eu encontrei o **cAdvisor**!
 
@@ -30,58 +26,13 @@ Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsear
 
 As únicas coisas que você vai precisar são o Docker e o Docker Compose, nesse caso. Para o modo stand-alone, não é necessário utilizar o Docker Compose, basta rodar um único comando apenas. No meu caso, eu estou fazendo uso pelo fato de estar integrando com o Prometheus containerizado.
 
-Primeiramente, crie o arquivo de configuração do Prometheus, onde você vai apontar os _targets_ aos nomes dos containers com suas respectivas portas:
+{% gist [https://gist.github.com/carlosdamazio/ab084ec869e448c8a4b782378b04f291](https://gist.github.com/carlosdamazio/ab084ec869e448c8a4b782378b04f291 "https://gist.github.com/carlosdamazio/ab084ec869e448c8a4b782378b04f291") %}
 
-    # prometheus.yml
-    
-    global:
-      scrape_interval: 15s
-      evaluation_interval: 15s
-    
-    alerting:
-      alertmanagers:
-      - static_configs:
-        - targets:
-        # whatever you want
-    
-    scrape_configs:
-      - job_name: 'prometheus'
-        static_configs:
-        - targets: \['prometheus:9090'\]
-          labels:
-            alias: 'prometheus'
-    
-      - job_name: 'cadvisor'
-        static_configs:
-        - targets: \['cadvisor:8080'\]
-          labels:
-            alias: 'cadvisor'
+Primeiramente, crie o arquivo de configuração do Prometheus, onde você vai apontar os _targets_ aos nomes dos containers com suas respectivas portas:
 
 Com isso fora do caminho, vamos criar o nosso arquivo de docker-compose.yml. Lembrando que devemos setar o nome dos containers porque eles vão ser o FQDN na rede default do Docker. Mapeie o arquivo de configuração do Prometheus no /etc/prometheus/prometheus.yml para sobrescrever o arquivo default do container e também aponte nos _commands_ o parâmetro de arquivo de configuração no diretório do container:
 
-    version: '3.4'
-    services:
-      prometheus:
-        image: 'prom/prometheus:latest'
-        container_name: prometheus
-        volumes:
-          - ./prometheus.yml:/etc/prometheus/prometheus.yml
-        commands:
-          - '--config.file=/etc/prometheus/prometheus.yml'
-        ports:
-          - '9090:9090'
     
-      cadvisor:
-        image: 'google/cadvisor:latest'
-        container_name: cadvisor
-        volumes:
-          - /:/rootfs:ro
-          - /var/run:/var/run:ro
-          - /sys:/sys:ro
-          - /var/lib/docker/:/var/lib/docker:ro
-          - /dev/disk:/dev/disk/:ro
-        ports:
-        - '8080:8080'
 
 Agora, para rodar tudo:
 
