@@ -30,6 +30,8 @@ As únicas coisas que você vai precisar são o Docker e o Docker Compose, nesse
 
 Primeiramente, crie o arquivo de configuração do Prometheus, onde você vai apontar os _targets_ aos nomes dos containers com suas respectivas portas:
 
+{% gist carlosdamazio/8a2f9d00ce60c94d3af6f8e3eae42530 %}
+
 Com isso fora do caminho, vamos criar o nosso arquivo de docker-compose.yml. Lembrando que devemos setar o nome dos containers porque eles vão ser o FQDN na rede default do Docker. Mapeie o arquivo de configuração do Prometheus no /etc/prometheus/prometheus.yml para sobrescrever o arquivo default do container e também aponte nos _commands_ o parâmetro de arquivo de configuração no diretório do container:
 
     
