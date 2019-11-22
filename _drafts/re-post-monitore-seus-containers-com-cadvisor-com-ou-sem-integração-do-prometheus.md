@@ -26,15 +26,13 @@ Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsear
 
 As únicas coisas que você vai precisar são o Docker e o Docker Compose, nesse caso. Para o modo stand-alone, não é necessário utilizar o Docker Compose, basta rodar um único comando apenas. No meu caso, eu estou fazendo uso pelo fato de estar integrando com o Prometheus containerizado.
 
-{% gist carlosdamazio/ab084ec869e448c8a4b782378b04f291 %}
-
 Primeiramente, crie o arquivo de configuração do Prometheus, onde você vai apontar os _targets_ aos nomes dos containers com suas respectivas portas:
 
-{% gist carlosdamazio/8a2f9d00ce60c94d3af6f8e3eae42530 %}
+{% gist carlosdamazio/ab084ec869e448c8a4b782378b04f291 %}
 
 Com isso fora do caminho, vamos criar o nosso arquivo de docker-compose.yml. Lembrando que devemos setar o nome dos containers porque eles vão ser o FQDN na rede default do Docker. Mapeie o arquivo de configuração do Prometheus no /etc/prometheus/prometheus.yml para sobrescrever o arquivo default do container e também aponte nos _commands_ o parâmetro de arquivo de configuração no diretório do container:
 
-    
+{% gist carlosdamazio/8a2f9d00ce60c94d3af6f8e3eae42530 %}
 
 Agora, para rodar tudo:
 
@@ -53,15 +51,13 @@ Agora, para rodar tudo:
       --name=cadvisor \\
       google/cadvisor:latest
 
-\# Finalizando
+## Finalizando
 
 Se quiser verificar se ambos os serviços estão de pé, acessem o \[Localhost\](http://Localhost) na porta 8080 para o cAdvisor ou 9090 para o Prometheus:
 
-!\[\](-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled)
+[-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled](/assets/images/-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled "-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled")
 
 Prometheus - localhost:9090
-
-!\[\](-b7188ae3-cb4c-4f43-9196-021a2374dda7untitled)
 
 cAdvisor - localhost:8080
 
