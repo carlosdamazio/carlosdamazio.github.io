@@ -16,7 +16,7 @@ author: carlosdamazio
 description: ''
 
 ---
-Quando o assunto é monitoramento de containers, poucas pessoas costumam confundir a noção do container se algo temporário, por isso não deveríamos nos preocupar com a sua monitoração. Bem, por um lado podemos pensar que não vale a pena por causa do auto-scale das soluções de orquestração, mas grande parte das soluções NÃO precisam de uma solução FULL escalável com orquestração, pois estes não são o _Facebook._ Tomem essa opinião com uma colher de sal, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes que são críticos, como as soluções containerizadas.
+Bem, começando o blog com uma sugestão massa enquanto procurava componentes para monitoração.._._ Tomem essa opinião com uma colher de sal, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes que são críticos, como as soluções containerizadas.
 
 Em um projeto que participei anteriormente, após o desenvolvimento e implementação da solução, estava muito difícil de monitorar a operação pela falta de integração dos estados dos containers com as soluções de alerta. E nessa procura, eu encontrei o **cAdvisor**!
 
@@ -24,7 +24,7 @@ Em um projeto que participei anteriormente, após o desenvolvimento e implementa
 
 É uma solução daemon que é executada como container, analisando o uso de recursos do host por parte dos containers. Mas tem uma pegada melhor: ele analisa os processos que ocorrem dentro dos containers do host. Foi criado pela Google e é nativo com o Docker. Se quiser ver o repositório da ferramenta, dá uma olhadinha [aqui](https://github.com/google/cadvisor)!
 
-Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsearch_, com o _Kubernetes_, mas estarei mostrando como montar um caso mínimo de forma Stand Alone e/ou com integração com o Prometheus, uma solução de monitoração open-source.
+Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsearch_, com o _Kubernetes_, mas estarei mostrando como montar um caso mínimo de forma stand-alone e/ou com integração com o Prometheus, uma solução de monitoração open-source.
 
 ## Sujando as mãos
 
