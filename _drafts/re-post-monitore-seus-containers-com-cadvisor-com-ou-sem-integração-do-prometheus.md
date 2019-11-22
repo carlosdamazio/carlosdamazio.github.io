@@ -22,7 +22,7 @@ Em um projeto que participei anteriormente, após o desenvolvimento e implementa
 
 Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsearch_, com o _Kubernetes_, mas estarei mostrando como montar um caso mínimo de forma Stand Alone e/ou com integração com o Prometheus, uma solução de monitoração open-source.
 
-\# Sujando as mãos
+## Sujando as mãos
 
 As únicas coisas que você vai precisar são o Docker e o Docker Compose, nesse caso. Para o modo stand-alone, não é necessário utilizar o Docker Compose, basta rodar um único comando apenas. No meu caso, eu estou fazendo uso pelo fato de estar integrando com o Prometheus containerizado.
 
@@ -53,29 +53,26 @@ Agora, para rodar tudo:
 
 ## Finalizando
 
-Se quiser verificar se ambos os serviços estão de pé, acessem o \[Localhost\](http://Localhost) na porta 8080 para o cAdvisor ou 9090 para o Prometheus:
+Se quiser verificar se ambos os serviços estão de pé, acessem o Localhost na porta 8080 para o cAdvisor ou 9090 para o Prometheus:
 
-[-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled](/assets/images/-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled "-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled")
+![](/assets/images/-6bd8ac8c-e8d0-43f5-8263-7133cbafc913untitled.png)
 
-Prometheus - localhost:9090
+_Prometheus - localhost:9090_
 
-cAdvisor - localhost:8080
+![](/assets/images/-b7188ae3-cb4c-4f43-9196-021a2374dda7untitled.png)
+
+_cAdvisor - localhost:8080_
 
 Você poderá checar a interface da aplicação por conta própria, tente rodar mais containers e verifique as métricas que ela pode fornecer.
 
 Além disso, se você escolheu integrar com o Prometheus, verifique se ele está se conectando com o cAdvisor através do _status → targets_:
 
-!\[\](-d5cd3b20-708f-47d4-ad0c-448f5cdc0ce9untitled)
+![](/assets/images/-d5cd3b20-708f-47d4-ad0c-448f5cdc0ce9untitled.png)
 
 Se houver sucesso na conexão, você está pronto(a) para fazer queries sobre estatísticas de uso de containers, aumentando o arcabouço de monitoramento das suas aplicações. Quem sabe, poderíamos integrar com ferramentas de alerta...
 
-!\[\](-0e1dfb85-6073-455f-8d96-38d371cf0a3euntitled)
-
-\# Considerações
+## Considerações
 
 Esse foi um repost, pois o post original estava no Medium. Eu removi o post original pelo fato de eu não concordar com as práticas que o pessoal utiliza o meio para abusar do mecanismo de Paywall, que incomoda mesmo um usuário pois este não sabe se o link clicado é para um artigo pago ou gratuito. Existem meios melhores e mais justo para arrecadar.
 
 Obrigado por lerem, e se isso te ajudou, divulguem!
-
-    def wat(wat):
-    	return None
