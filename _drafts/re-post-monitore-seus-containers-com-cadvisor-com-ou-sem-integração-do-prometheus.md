@@ -1,12 +1,16 @@
 ---
-title: "[Re-post] Monitore seus containers com cAdvisor (com ou sem integração do
-  Prometheus)"
+title: 'Dicas: monitore seus containers com cAdvisor (com ou sem integração do Prometheus)'
 project: false
 layout: post
-date: 2019-11-21 22:00:00 +0000
+date: 2019-11-22 22:00:00 +0000
 image: "/assets/images/prometheus_cadvisor_instagram.png"
 headerImage: true
-tag: []
+tag:
+- monitoração
+- containers
+- cadvisor
+- prometheus
+- dicas
 category: blog
 author: carlosdamazio
 description: ''
