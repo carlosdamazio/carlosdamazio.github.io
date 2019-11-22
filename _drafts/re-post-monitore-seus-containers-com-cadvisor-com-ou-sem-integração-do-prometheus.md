@@ -16,7 +16,7 @@ author: carlosdamazio
 description: ''
 
 ---
-Bem, começando o blog com uma sugestão massa enquanto procurava componentes para monitoração.._._ Tomem essa opinião com uma colher de sal, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes que são críticos, como as soluções containerizadas.
+Bem, começando o blog com uma sugestão massa enquanto procurava componentes para monitoração.._._ Tomem essa opinião com uma colher de chá, mas toda parte da infraestrutura deveria ser monitorada, inclusive daqueles componentes que são críticos, como as soluções containerizadas.
 
 Em um projeto que participei anteriormente, após o desenvolvimento e implementação da solução, estava muito difícil de monitorar a operação pela falta de integração dos estados dos containers com as soluções de alerta. E nessa procura, eu encontrei o **cAdvisor**!
 
