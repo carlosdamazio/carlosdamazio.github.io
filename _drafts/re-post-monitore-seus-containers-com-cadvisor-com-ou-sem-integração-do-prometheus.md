@@ -26,7 +26,7 @@ Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsear
 
 As únicas coisas que você vai precisar são o Docker e o Docker Compose, nesse caso. Para o modo stand-alone, não é necessário utilizar o Docker Compose, basta rodar um único comando apenas. No meu caso, eu estou fazendo uso pelo fato de estar integrando com o Prometheus containerizado.
 
-{% gist [https://gist.github.com/carlosdamazio/ab084ec869e448c8a4b782378b04f291](https://gist.github.com/carlosdamazio/ab084ec869e448c8a4b782378b04f291 "https://gist.github.com/carlosdamazio/ab084ec869e448c8a4b782378b04f291") %}
+{% gist carlosdamazio/ab084ec869e448c8a4b782378b04f291 %}
 
 Primeiramente, crie o arquivo de configuração do Prometheus, onde você vai apontar os _targets_ aos nomes dos containers com suas respectivas portas:
 
