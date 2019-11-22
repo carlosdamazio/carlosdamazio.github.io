@@ -22,7 +22,7 @@ Em um projeto que participei anteriormente, após o desenvolvimento e implementa
 
 ![](https://github.com/google/cadvisor/raw/master/logo.png)
 
-É uma solução daemon que é executada como container, analisando o uso de recursos do host por parte dos containers. Mas tem uma pegada melhor: ele analisa os processos que ocorrem dentro dos containers do host. Foi criado pela Google e é nativo com o Docker. Se quiser ver o repositório da ferramenta, dá uma olhadinha [aqui](https://github.com/google/cadvisor)!
+É uma solução daemon que é executada como container, analisando o uso de recursos do host por parte dos containers. Mas tem uma pegada melhor: ele analisa os processos que ocorrem dentro deles. Foi criado pela Google e é nativo com o Docker. Se quiser ver o repositório da ferramenta, dá uma olhadinha [aqui](https://github.com/google/cadvisor)!
 
 Podemos usar ele _n_ formas: de forma stand-alone, integrando com o _Elasticsearch_, com o _Kubernetes_, mas estarei mostrando como montar um caso mínimo de forma stand-alone e/ou com integração com o Prometheus, uma solução de monitoração open-source.
 
