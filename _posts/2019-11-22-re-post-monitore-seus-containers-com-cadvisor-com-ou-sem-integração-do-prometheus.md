@@ -79,4 +79,4 @@ Se houver sucesso na conexão, você está pronto(a) para fazer queries sobre es
 
 Esse foi um repost, pois o post original estava no Medium. Eu removi o post original pelo fato de eu não concordar com as práticas que o pessoal utiliza o meio para abusar do mecanismo de Paywall, que incomoda mesmo um usuário pois este não sabe se o link clicado é para um artigo pago ou gratuito. Existem meios melhores e mais justo para arrecadar.
 
-Obrigado por lerem, e se isso te ajudou, divulguem!
+Obrigado por ler, stranger. Se isso te ajudou, divulgue!
