@@ -2,13 +2,19 @@
 title: "[Autenticação de Serviços Existentes] Calmaria antes da tempestade: Proxy
   Reverso e como implementar um"
 project: false
-layout: ''
-date: 
+layout: post
+date: 2019-12-12 03:00:00 +0000
 image: ''
 headerImage: false
-tag: []
-category: ''
-author: ''
+tag:
+- haproxy
+- http
+- proxy
+- nginx
+- devops
+- infraestrutura
+category: blog
+author: carlosdamazio
 description: ''
 
 ---
