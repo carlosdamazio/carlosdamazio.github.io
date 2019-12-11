@@ -1,5 +1,5 @@
 ---
-title: 'Calmaria antes da tempestade: Proxy Reverso e como implementar um'
+title: "[Auth 1/3] Calmaria antes da tempestade: Proxy Reverso e como implementar"
 project: false
 layout: post
 date: 2019-12-12 03:00:00 +0000
