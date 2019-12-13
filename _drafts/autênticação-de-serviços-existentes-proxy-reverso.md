@@ -1,5 +1,5 @@
 ---
-title: "[Auth 1/3] Calmaria antes da tempestade: Proxy Reverso e como implementar"
+title: "[Auth 1/2] Calmaria antes da tempestade: Proxy Reverso e como implementar"
 project: false
 layout: post
 date: 2019-12-12 03:00:00 +0000
@@ -27,6 +27,8 @@ Essa vai ser a primeira parte da série de posts com relação à arquitetura de
 
 É uma arquitetura de solução de software que tem como diferencial a descentralização dos componentes. Ao invés de uma única solução ter componentes acoplados em uma única estrutura, estes componentes (autenticação, sistema de pagamento, dashboards, etc) são construídos em serviços pequenos e desacoplados, permitindo que estes serviços sejam independentes e escaláveis. Apesar de tudo, estes serviços ainda podem conversar entre sí através de protocolos (HTTP em grande parte).
 
+![](/assets/images/microsserviço.png)
+
 _Mas como assim independentes e escaláveis? Não seria mais fácil levantar duas instâncias da mesma aplicação?_
 
 De forma alguma quero denegrir o que a arquitetura monolítica trouxe para gente. Pelo contrário, você tem que pensar muito bem sobre qual tipo de arquitetura usar, levando em consideração os requisitos e características que o seu projeto terá. Para fins de demonstração, vamos considerar um grande sistema que tem mais de 20 funcionalidades/módulos/submódulos/etc monolítico, como vamos garantir que:
@@ -43,8 +45,32 @@ Então temos o seguinte:
 * Podemos garantir que uma pessoa não precise reinventar a roda.
 * Podemos garantir que essa mesma pessoa se preocupe apenas com a complexidade do próprio módulo que ela esteja desenvolvendo;
 
-_Beleza. Como vamos fazer que os serviços de uma aplicação conversem entre sí? E como poderíamos escalar elas?_
+_Beleza. Como vamos fazer que os serviços de uma aplicação ainda sejam alcançados? E como poderíamos escalar eles?_
 
 Dai vou precisar explicar sobre um componente extremamente importante...
 
-## Proxy Reverso
+## Proxy reverso
+
+![](/assets/images/proxy-reverso-1.png)
+
+Proxy reverso é um componente na infraestrutura que tem como papel redirecionar requisições para um ou vários servidores web que contém os serviços. Toda vez que um usuário solicitar algo ao back-end, a aplicação que ele acessa fará uma requisição ao proxy reverso, dentro do seu _namespace_, que, em seguida, fará uma requisição para o servidor web que serve este back-end em nome da aplicação _cliente_.
+
+Vantagens de se utilizar um proxy reverso:
+
+* Ele proverá cacheamento a um servidor back-end que se encontra em lentidão, assim diminuindo o tempo de resposta da aplicação devido a diminuição no tempo de resposta deste back-end;
+* Pode prover balanceamento de carga entre várias instâncias de um back-end, fazendo assim uma aplicação de alto escopo e acesso performar com diferentes volumes de acesso, variando em qual instância o _cliente_ irá acessar;
+* Não precisa registrar vários CNAMES para se acessar os serviços (blog.empresa.com, suporte.empresa.com, app.empresa.com). Podemos simplesmente utilizar o _namespace_ do proxy reverso e fazer as requisições por eles mesmos (empresa.com/blog, empresa.com/app, empresa.com/suporte)
+
+Existem várias ferramentas que podemos usar para implementar um proxy reverso: Apache, Nginx, HAProxy, Traefik, etc. Mas neste exemplo, estarei usando o Nginx para mostrar o uso desse componente.
+
+## Sujando as mãos
+
+![](https://logodownload.org/wp-content/uploads/2018/03/nginx-logo.png)
+
+> Desejamos implementar um back-end mais resiliente, seguro e com balanceamento de carga. O que podemos fazer?
+
+Devemos implementar um proxy reverso que, caso o cliente queira acessar o back-end da aplicação, poderá acessar uma das várias instâncias desse back-end **através** dele, e não diretamente nas instâncias, de acordo com a carga de cada um destes back-ends.
+
+Vamos criar 3 aplicações Flask distintas (para demonstrar o mecanismo de balanceamento de carga) que simularão o nosso back-end e iremos instanciar um Nginx com uma configuração de proxy reverso. Para isso, não precisamos de nada mais e nada menos do que o Docker e o Docker-Compose.
+
+Primeiro, vamos criar as aplicações Flask e containerizar elas:
