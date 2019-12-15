@@ -75,4 +75,4 @@ Vamos criar 3 aplicações Flask distintas (para demonstrar o mecanismo de balan
 
 Primeiro, vamos criar as aplicações Flask e containerizar elas:
 
-{% gist %}
+{% gist carlosdamazio/9e535b7314c4380c22a5b72ccb5035e3 %}
