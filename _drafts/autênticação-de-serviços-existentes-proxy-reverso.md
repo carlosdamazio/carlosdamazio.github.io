@@ -102,6 +102,10 @@ Neste caso, eu quero demonstrar que podemos acessar inúmeras instâncias de for
 
 {% gist carlosdamazio/1d3a74773b30f1d0a9c7a167892b520a %}
 
+Depois, vamos criar um arquivo de Dockerfile, para criar um container do Nginx com as configurações acima:
+
+{% gist carlosdamazio/336b24dbb68d39e46508b2873ff79a46 %}
+
 Por último, vamos criar o arquivo do Docker Compose para levantar tudo o que montamos:
 
 {% gist carlosdamazio/04488525742ed7930e771b9f307e2e95 %}
@@ -111,6 +115,8 @@ Com isso, rodamos no mesmo diretório o comando para subir o nosso exemplo:
     $ docker-compose up -d
 
 E pronto! Acesse o http://localhost e fique pressionando o F5, veja o balanceador entrar em ação, trocando a cada F5 a aplicação que está acessando.
+
+![](/assets/images/Peek 2019-12-15 00-15.gif)
 
 ## Considerações
 
