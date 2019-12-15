@@ -74,3 +74,5 @@ Devemos implementar um proxy reverso que, caso o cliente queira acessar o back-e
 Vamos criar 3 aplicações Flask distintas (para demonstrar o mecanismo de balanceamento de carga) que simularão o nosso back-end e iremos instanciar um Nginx com uma configuração de proxy reverso. Para isso, não precisamos de nada mais e nada menos do que o Docker e o Docker-Compose.
 
 Primeiro, vamos criar as aplicações Flask e containerizar elas:
+
+{% gist %}
