@@ -1,10 +1,10 @@
 ---
-title: "[Auth 1/2] Calmaria antes da tempestade: Proxy Reverso e como implementar"
+title: "[Auth 1/2] Proxy Reverso e como implementar"
 project: false
 layout: post
-date: 2019-12-12 03:00:00 +0000
-image: ''
-headerImage: false
+date: 2019-12-16 11:30:00 +0000
+image: "/assets/images/nginx-logo.png"
+headerImage: true
 tag:
 - haproxy
 - http
@@ -19,7 +19,7 @@ description: ''
 ---
 Pessoal, tudo bem?
 
-Então, postei no Instagram e dei uns _hints_ de que eu faria uma série de postagens sobre Autênticação de Serviços Existentes com 3 serviços: 1 Django Rest Framework (OAuth2) para autenticar, outro DRF para fazer o back-end da aplicação e o Vue.js para um serviço de front-end.
+Então, postei no Instagram e dei uns _hints_ de que eu faria uma série de postagens sobre Autênticação de Serviços Existentes com 3 serviços: 1 Django Rest Framework (OAuth2) para autenticar o cliente na API, outro DRF para fazer a API da aplicação e o Vue.js para um serviço de front-end.
 
 Essa vai ser a primeira parte da série de posts com relação à arquitetura de microsserviços, não especificamente sobre ela, mas sobre autenticação externa e como acoplar ela em uma solução já existente no Django Rest Framework. Bem, mais do que explicar uma receita de bolo como de sempre, vou explicar uns conceitos...
 
