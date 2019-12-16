@@ -21,7 +21,7 @@ Pessoal, tudo bem?
 
 Então, postei no Instagram e dei uns _hints_ de que eu faria uma série de postagens sobre Autênticação de Serviços Existentes com 3 serviços: 1 Django Rest Framework (OAuth2) para autenticar o cliente na API, outro DRF para fazer a API da aplicação e o Vue.js para um serviço de front-end.
 
-Essa vai ser a primeira parte da série de posts com relação à arquitetura de microsserviços, não especificamente sobre ela, mas sobre autenticação externa e como acoplar ela em uma solução já existente no Django Rest Framework. Bem, mais do que explicar uma receita de bolo como de sempre, vou explicar uns conceitos...
+Essa vai ser a primeira parte da série de posts com relação à arquitetura de microsserviços, não especificamente sobre ela, mas sobre autenticação externa e como acoplar um sistema de autênticação a uma solução já existente no Django Rest Framework. Bem, mais do que explicar uma receita de bolo como de sempre, vou explicar uns conceitos...
 
 ## O que é uma Arquitetura de Microsserviços?
 
@@ -29,13 +29,13 @@ Essa vai ser a primeira parte da série de posts com relação à arquitetura de
 
 ![](/assets/images/microsserviço.png)
 
-_Mas como assim independentes e escaláveis? Não seria mais fácil levantar duas instâncias da mesma aplicação?_
+_Mas como assim "independentes e escaláveis"? Não seria mais fácil levantar duas instâncias da mesma aplicação?_
 
 De forma alguma quero denegrir o que a arquitetura monolítica trouxe para gente. Pelo contrário, você tem que pensar muito bem sobre qual tipo de arquitetura usar, levando em consideração os requisitos e características que o seu projeto terá. Para fins de demonstração, vamos considerar um grande sistema que tem mais de 20 funcionalidades/módulos/submódulos/etc monolítico, como vamos garantir que:
 
-* _A aplicação continue disponível caso um dos componentes falhem?_ Isso acontece muito quando temos uma aplicação MVC que está muito acoplada e confia demais na renderização no back-end;
+* _A aplicação continue disponível caso um dos componentes falhe?_ Isso acontece muito quando temos uma aplicação MVC que está muito acoplada e confia demais na renderização no back-end;
 * _Poderíamos fazer um deploy sem que haja indisponibilidade total da aplicação?_ Para cada atualização de uma funcionalidade ou módulo, precisamos fazer o deploy da aplicação inteira. Isso demanda **MUITO** tempo, dependendo do tamanho da aplicação;
-* _Poderíamos reaproveitar funcionalidades de outras aplicações, sem que haja a necessidade de reescrita de código?_ Estes serviços deverão ser expostos às aplicações que desejam consumir a sua funcionalidade através das chamadas HTTP.
+* _Poderíamos reaproveitar funcionalidades de outros serviços sem que haja a necessidade de reescrita de código?_ Estes serviços deverão ser expostos às aplicações que desejam consumir a sua funcionalidade através das chamadas HTTP.
 * _Haverá uma menor curva de aprendizado para novos desenvolvedores?_ Um sistema altamente acoplado acaba arruinando as noites de um novo dev, sendo que ele estaria encarregado de apenas um componente.
 
 Então temos o seguinte:
@@ -53,13 +53,13 @@ Dai vou precisar explicar sobre um componente extremamente importante...
 
 ![](/assets/images/proxy-reverso-1.png)
 
-Proxy reverso é um componente na infraestrutura que tem como papel redirecionar requisições para um ou vários servidores web que contém os serviços. Toda vez que um usuário solicitar algo ao back-end, a aplicação que ele acessa fará uma requisição ao proxy reverso, dentro do seu _namespace_, que, em seguida, fará uma requisição para o servidor web que serve este back-end em nome da aplicação _cliente_.
+Proxy reverso é um componente na infraestrutura que tem como papel redirecionar requisições para um ou vários servidores web que contém serviços. Toda vez que um usuário solicitar algo ao back-end, a aplicação que ele acessa fará uma requisição ao proxy reverso, dentro do seu _namespace_, que, em seguida, fará uma requisição para o servidor web que serve este back-end em nome da aplicação _cliente_.
 
 Vantagens de se utilizar um proxy reverso:
 
 * Ele proverá cacheamento a um servidor back-end que se encontra em lentidão, assim diminuindo o tempo de resposta da aplicação devido a diminuição no tempo de resposta deste back-end;
 * Pode prover balanceamento de carga entre várias instâncias de um back-end, fazendo assim uma aplicação de alto escopo e acesso performar com diferentes volumes de acesso, variando em qual instância o _cliente_ irá acessar;
-* Não precisa registrar vários CNAMES para se acessar os serviços (blog.empresa.com, suporte.empresa.com, app.empresa.com). Podemos simplesmente utilizar o _namespace_ do proxy reverso e fazer as requisições por eles mesmos (empresa.com/blog, empresa.com/app, empresa.com/suporte)
+* Não precisa registrar vários CNAME para se acessar os serviços (blog.empresa.com, suporte.empresa.com, app.empresa.com). Podemos simplesmente utilizar o _namespace_ do proxy reverso e fazer as requisições por eles mesmos (empresa.com/blog, empresa.com/app, empresa.com/suporte)
 
 Existem várias ferramentas que podemos usar para implementar um proxy reverso: Apache, Nginx, HAProxy, Traefik, etc. Mas neste exemplo, estarei usando o Nginx para mostrar o uso desse componente.
 
@@ -124,7 +124,7 @@ Vimos a importância do proxy reverso como componente importante de uma arquitet
 
 _Como integrar um sistema de autênticação OAuth2 em uma API feita no Django Rest Framework existente?_
 
-Caso gostaram deste post e se contribuiu para algo na vida, não esqueça de compartilhar o link ou mencionar que veio de cá! Meus contatos se encontram na página inicial do Blog.
+Caso você tenha gostado deste post e se ele contribuiu para algo na vida, não esqueça de compartilhar o link ou mencionar que veio de cá! Meus contatos se encontram na página inicial do blog.
 
 Fico feliz em ajudar.
 
