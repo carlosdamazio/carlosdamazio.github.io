@@ -42,8 +42,8 @@ Então temos o seguinte:
 
 * A gente não precisa punir uma aplicação inteira caso um dos seus serviços esteja com problemas;
 * É desnecessário fazer deploy de 20 componentes cada vez que fazemos uma alteração em apenas um componentes. E podemos subir qualquer quantidade de instâncias separadas de quaisquer componentes havendo a necessidade para tal;
-* Podemos garantir que uma pessoa não precise reinventar a roda.
-* Podemos garantir que essa mesma pessoa se preocupe apenas com a complexidade do próprio módulo que ela esteja desenvolvendo;
+* Podemos garantir que uma pessoa não precise reinventar a roda;
+* Podemos garantir que essa mesma pessoa se preocupe apenas com a complexidade do próprio módulo que ela esteja desenvolvendo.
 
 _Beleza. Como vamos fazer que os serviços de uma aplicação ainda sejam alcançados? E como poderíamos escalar eles?_
 
