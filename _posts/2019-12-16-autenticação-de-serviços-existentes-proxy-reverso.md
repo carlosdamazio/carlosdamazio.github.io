@@ -2,7 +2,7 @@
 title: "[Auth 1/2] Proxy Reverso e como implementar"
 project: false
 layout: post
-date: 2019-12-16 11:30:00 +0000
+date: 2019-12-16T11:30:00.000+00:00
 image: "/assets/images/nginx-logo.png"
 headerImage: true
 tag:
@@ -21,9 +21,9 @@ Pessoal, tudo bem?
 
 Então, postei no Instagram e dei uns _hints_ de que eu faria uma série de postagens sobre Autênticação de Serviços Existentes com 3 serviços: 1 Django Rest Framework (OAuth2) para autenticar o cliente na API, outro DRF para fazer a API da aplicação e o Vue.js para um serviço de front-end.
 
-Essa vai ser a primeira parte da série de posts com relação à arquitetura de microsserviços, não especificamente sobre ela, mas sobre autenticação externa e como acoplar um sistema de autênticação a uma solução já existente no Django Rest Framework. Bem, mais do que explicar uma receita de bolo como de sempre, vou explicar uns conceitos...
+Essa vai ser a primeira parte da série de posts com relação à arquitetura de micro serviços, não especificamente sobre ela, mas sobre autenticação externa e como acoplar um sistema de autênticação a uma solução já existente no Django Rest Framework. Bem, mais do que explicar uma receita de bolo como de sempre, vou explicar uns conceitos...
 
-## O que é uma Arquitetura de Microsserviços?
+## O que é uma Arquitetura de Micro serviços?
 
 É uma arquitetura de solução de software que tem como diferencial a descentralização dos componentes. Ao invés de uma única solução ter componentes acoplados em uma única estrutura, estes componentes (autenticação, sistema de pagamento, dashboards, etc) são construídos em serviços pequenos e desacoplados, permitindo que estes serviços sejam independentes e escaláveis. Apesar de tudo, estes serviços ainda podem conversar entre sí através de protocolos (HTTP em grande parte).
 
@@ -120,7 +120,7 @@ E pronto! Acesse o http://localhost e fique pressionando o F5, veja o balanceado
 
 ## Considerações
 
-Vimos a importância do proxy reverso como componente importante de uma arquitetura de microsserviços, mas estamos meio que escorando a superfície do que realmente é microsserviços. O objetivo aqui não era para demonstrar sobre o tema, mas sim para dar contexto e também para dar um _feeling_ do que teremos a seguir, pois é um tema que tem ligação sobre microsserviços. O próximo post será:
+Vimos a importância do proxy reverso como componente importante de uma arquitetura de micro serviços, mas estamos meio que escorando a superfície do que realmente é micro serviços. O objetivo aqui não era para demonstrar sobre o tema, mas sim para dar contexto e também para dar um _feeling_ do que teremos a seguir, pois é um tema que tem ligação sobre micro serviços. O próximo post será:
 
 _Como integrar um sistema de autênticação OAuth2 em uma API feita no Django Rest Framework existente?_
 
