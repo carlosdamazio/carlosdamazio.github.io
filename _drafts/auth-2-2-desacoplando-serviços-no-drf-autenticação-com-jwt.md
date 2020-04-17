@@ -89,4 +89,4 @@ O que significa cada uma dessas estruturas? Se a gente decodificar cada uma dess
 
   Sendo assim, a gente consegue repassar esse _token_ para um servidor através do _header_ de _Authorization_ da seguinte forma:
 
-    
+    Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NDk4NzQ5ODc5OCIsIm5hbWUiOiJDYXJsb3MgRGFtw6F6aW8iLCJpYXQiOjQ5ODQ5ODc5ODE2LCJtc2ciOiJFdSBzZWkgcXVlIHZvY8OqIGVzdMOhIGxlbmRvIGlzc28uIn0.LLZkJu000yUAfuE91wf69eajjL7uwblcZRVpFRHDVCQ
