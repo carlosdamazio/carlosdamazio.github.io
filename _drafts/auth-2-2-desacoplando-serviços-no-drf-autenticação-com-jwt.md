@@ -31,6 +31,8 @@ Lembro a vocês que micro serviços, UM dos seus objetivos é de desacoplar a es
 
 Um blog simples não é um caso necessário de se aplicar micro serviços, e nem uma aplicação de lista de _TO-DO_. Toda utilização e consideração de uso de uma arquitetura tem que ter uma explicação e cabe a gente mesmo decidir o que usar e como usar, mas parte do bom senso de pesquisa e de uso da ciência.
 
+Digo e repito: Prova de conceito **NÃO É PRODUCTION READY**. São ideias do que podemos fazer com uma determinada tecnologia, não é pra fazer CTRL+C e CTRL+V, seja responsável!
+
 Vamos fazer um _refresh_ sobre os modelos de autenticação do Django Rest Framework.
 
 ## Como é determinado a autenticação no DRF?
@@ -49,3 +51,42 @@ Temos uma lista de tipos de autenticação que são providos, tanto nativamente 
 * JWTAuthentication.
 
 Não existe uma melhor autenticação, afinal, grande parte delas estão descritas em RFCs (_Request for Comments_) que são documentos de especificações técnicas de tecnologia escritas por tanto indivíduos como entidades. Mas o que esteve sempre em evidência, na comunidade de desenvolvimento web, é a utilização do JWT. Creio que seja pelo grande uso do JavaScript na comunidade, eu não sei qual a correlação no momento (talvez eu edite o post mais tarde). Mas seu uso é válido, provado pela especificação na [RFC 7519](https://tools.ietf.org/html/rfc7519) prova a sua veracidada.
+
+## JWT
+
+JWT (JSON Web Token) é um padrão para envio de "claims" em espaços beeeem restritos. O que isso significa? É um token que, ao mesmo tempo que verifica a identidade de quem a possui, também pode repassar dados que podemos inserir, além de podermos prover clientes _stateless_. Claro, aparentemente isso não é novidade, mas promete trazer simplicidade na hora de fazer isso.
+
+Vamos analisar um JWT:
+
+> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NDk4NzQ5ODc5OCIsIm5hbWUiOiJDYXJsb3MgRGFtw6F6aW8iLCJpYXQiOjQ5ODQ5ODc5ODE2LCJtc2ciOiJFdSBzZWkgcXVlIHZvY8OqIGVzdMOhIGxlbmRvIGlzc28uIn0.LLZkJu000yUAfuE91wf69eajjL7uwblcZRVpFRHDVCQ
+
+Meio complexo? Cheio de lixo? Não se parece com nada de JSON? Ele está codificado em Base64url Vamos quebrar esse token em 3 pontos ".":
+
+    <header>.<payload>.<signature>
+
+O que significa cada uma dessas estruturas? Se a gente decodificar cada uma dessas sessões, a gente tem:
+
+* Header: É o metadado do JWT, ele fala do que a informação como um todo se trata e como a sua _signature_ está codificada (qual algoritmo de codificação está sendo utilizado):
+
+      {
+        "alg": "HS256",
+        "typ": "JWT"
+      }
+* Payload: possuí alguns dados de usuário, também pode conter alguns metadados do token como sua expiração:
+
+      {
+        "sub": "54987498798",
+        "name": "Carlos Damázio",
+        "iat": 49849879816
+      }
+* Signature: é a assinatura pública do JWT, que é composta pelo "header.payload" e o _segredinho_ do server:
+
+      HMACSHA256(
+        base64UrlEncode(header) + "." +
+        base64UrlEncode(payload),
+        segredinho
+      ) 
+
+  Sendo assim, a gente consegue repassar esse _token_ para um servidor através do _header_ de _Authorization_ da seguinte forma:
+
+    
