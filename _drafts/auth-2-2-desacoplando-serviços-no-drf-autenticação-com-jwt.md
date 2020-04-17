@@ -58,7 +58,7 @@ JWT (JSON Web Token) é um padrão para envio de "claims" em espaços beeeem res
 
 Vamos analisar um JWT:
 
-> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NDk4NzQ5ODc5OCIsIm5hbWUiOiJDYXJsb3MgRGFtw6F6aW8iLCJpYXQiOjQ5ODQ5ODc5ODE2LCJtc2ciOiJFdSBzZWkgcXVlIHZvY8OqIGVzdMOhIGxlbmRvIGlzc28uIn0.LLZkJu000yUAfuE91wf69eajjL7uwblcZRVpFRHDVCQ
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NDk4NzQ5ODc5OCIsIm5hbWUiOiJDYXJsb3MgRGFtw6F6aW8iLCJpYXQiOjQ5ODQ5ODc5ODE2LCJtc2ciOiJFdSBzZWkgcXVlIHZvY8OqIGVzdMOhIGxlbmRvIGlzc28uIn0.LLZkJu000yUAfuE91wf69eajjL7uwblcZRVpFRHDVCQ
 
 Meio complexo? Cheio de lixo? Não se parece com nada de JSON? Ele está codificado em Base64url Vamos quebrar esse token em 3 pontos ".":
 
