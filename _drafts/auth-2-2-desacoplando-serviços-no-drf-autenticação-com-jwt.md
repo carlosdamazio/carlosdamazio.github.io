@@ -50,7 +50,7 @@ Temos uma lista de tipos de autenticação que são providos, tanto nativamente 
 * OAuth;
 * JWTAuthentication.
 
-Não existe uma melhor autenticação, afinal, grande parte delas estão descritas em RFCs (_Request for Comments_) que são documentos de especificações técnicas de tecnologia escritas por tanto indivíduos como entidades. Mas o que esteve sempre em evidência, na comunidade de desenvolvimento web, é a utilização do JWT. Creio que seja pelo grande uso do JavaScript na comunidade, eu não sei qual a correlação no momento (talvez eu edite o post mais tarde). Mas seu uso é válido, provado pela especificação na [RFC 7519](https://tools.ietf.org/html/rfc7519) prova a sua veracidada.
+Não existe uma melhor autenticação, afinal, grande parte delas estão descritas em RFCs (_Request for Comments_) que são documentos de especificações técnicas de tecnologia escritas por tanto indivíduos como entidades. Mas o que esteve sempre em evidência, na comunidade de desenvolvimento web, é a utilização do JWT. Creio que seja pelo grande uso do JavaScript na comunidade, eu não sei qual a correlação no momento (talvez eu edite o post mais tarde). Mas seu uso é válido, provado pela especificação na [RFC 7519](https://tools.ietf.org/html/rfc7519) a sua veracidade.
 
 ## JWT
 
@@ -109,7 +109,7 @@ Bora parar de _pipipi popopo_ e ver a bagaça funfando, hein?!
 
 ## Codando o serviço de autenticação
 
-Eu estou utilizando o Kubuntu 18.04 LTS com a versão do Python 3.8.2. A gente vai criar dois projetos, um chamado _auth_ e outro chamado _transaction_, e para cada um deles, iremos inicial um ambiente virtual do Python (virtualenv) utilizando a opção -m invocando o módulo de _venv_:
+Eu estou utilizando o Kubuntu 18.04 LTS com a versão do Python 3.8.2. Vamos precisar do Docker e do Docker Compose. A gente vai criar dois projetos, um chamado _auth_ e outro chamado _transaction_, e para cada um deles, iremos inicial um ambiente virtual do Python (virtualenv) utilizando a opção -m invocando o módulo de _venv_:
 
     $ mkdir auth transaction
     $ cd auth && python3.8 -m venv .venv; cd ../transaction && python3.8 -m venv .venv && cd ..
@@ -137,8 +137,10 @@ Ele vai criar a estrutura de diretórios certinha para podermos iniciar a desenv
     ├── manage.py
     └── requirements.txt
 
-Vamos por partes. Nós temos um projeto padrão Django normal, sem ser o Django Rest Framework. Teremos que adicionar mais algumas coisinhas pra gente deixar do jeito que é para ser. Em _settings.py_, vamos adicionar o app do DRF em INSTALLED_APPS e a classe de autenticação JWT nas configurações do REST_FRAMEWORK:
+Vamos por partes. Nós temos um projeto padrão Django normal, sem ser o Django Rest Framework. Teremos que adicionar mais algumas coisinhas pra gente deixar do jeito que é para ser. Em _settings.py_, vamos adicionar o app do DRF em INSTALLED APPS, a configuração inicial do REST FRAMEWORK e configurar a conexão com o BD (em prod, não coloquem configuração alguma hardcoded, pelo amor viu?!):
 
+    ...
+    
     INSTALLED_APPS = [
     	...,
         'rest_framework',
@@ -153,7 +155,23 @@ Vamos por partes. Nós temos um projeto padrão Django normal, sem ser o Django 
     }
     
     ...
+    
+    # PELO AMOR, NÃO FAÇAM NADA HARDCODED EM PRODUÇÃO.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'nossoapp',
+            'PASSWORD': 'NoSS0APP',
+            'HOST': 'postgres',
+            'PORT': '5432',
+        }
+    }
+    
+    ...
 
-Perfeito. Em urls.py no root da aplicação, vamos adicionar 3 endpoints dentro do URL patterns com as views do JWT. O código ficaria assim:
+Perfeito. Em urls.py no root da aplicação, vamos adicionar 3 endpoints dentro do URL patterns com as views do JWT. Um irá obter o JWT, outro fará o refresh deste JWT e por último poderá ser feito a verificação dentro do serviço, caso seja necessário. O código ficaria assim:
 
 {% gist carlosdamazio/c03aa3f489eb1b568e857ae0c7337ce9 %}
+
+Agora, vamos fazer o código rodar. Não vamos o código diretamente, pois precisaríamos do banco de dados. Bora criar o nosso docker-compose.yml
