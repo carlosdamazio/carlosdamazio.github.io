@@ -174,4 +174,4 @@ Perfeito. Em urls.py no root da aplicação, vamos adicionar 3 endpoints dentro 
 
 {% gist carlosdamazio/c03aa3f489eb1b568e857ae0c7337ce9 %}
 
-Agora, vamos fazer o código rodar. Não vamos o código diretamente, pois precisaríamos do banco de dados. Bora criar o nosso docker-compose.yml
+Agora, vamos fazer o código rodar. Não vamos rodar o código diretamente, pois precisaríamos do banco de dados. Bora criar o nosso docker-compose.yml
