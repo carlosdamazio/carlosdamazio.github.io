@@ -27,9 +27,9 @@ Sendo mais específico, vou tentar provar que é possível se criar um serviço 
 
 ## Disclaimer rápido
 
-Lembro a vocês que micro serviços, UM dos seus objetivos é de desacoplar a estrutura, e isso inclui até mesmo TODA a estrutura que esse serviço necessita, incluindo o seu banco de dados, ao contrário do que eu sugeri na imagem do post passado. E eu relembro pra vocês que o seu uso tem que ser muito bem pensado, pois não é em toda solução em que se é adequado aplicar essa arquitetura.
+Lembro a vocês que microsserviços, UM dos seus objetivos é de desacoplar a estrutura, e isso inclui até mesmo TODA a estrutura que esse serviço necessita, incluindo o seu banco de dados, ao contrário do que eu sugeri na imagem do post passado. E eu relembro pra vocês que o seu uso tem que ser muito bem pensado, pois não é em toda solução em que se é adequado aplicar essa arquitetura.
 
-Um blog simples não é um caso necessário de se aplicar micro serviços, e nem uma aplicação de lista de _TO-DO_. Toda utilização e consideração de uso de uma arquitetura tem que ter uma explicação e cabe a gente mesmo decidir o que usar e como usar, mas parte do bom senso de pesquisa e de uso da ciência.
+Um blog simples não é um caso necessário de se aplicar microsserviços, e nem uma aplicação de lista de _TO-DO_. Toda utilização e consideração de uso de uma arquitetura tem que ter uma explicação e cabe a gente mesmo decidir o que usar e como usar, mas parte do bom senso de pesquisa e de uso da ciência.
 
 Digo e repito: Prova de conceito **NÃO É PRODUCTION READY**. São ideias do que podemos fazer com uma determinada tecnologia, não é pra fazer CTRL+C e CTRL+V, seja responsável!
 
@@ -99,7 +99,7 @@ Normalmente, teríamos uma aplicação cliente que faria acesso aos serviços, m
 
 * O serviço de autenticação ficará responsável por emitir os tokens para os usuários cadastrados dentro do sistema. Ao fazer o login, o usuário recebe o JWT. Normalmente, a aplicação cliente fica no encargo de guardar este token, normalmente em um Storage. Em nosso caso, vamos guardar na mão pra mostrar passo a passo como que o desacoplamento de serviços poderia funcionar no Django;
 * Cada serviço vai ter o seu próprio banco de dados;
-* Teremos um serviço fictício de transações bancárias. Ele receberá um JSON de transação. Mas somente receber esse JSON não é o suficiente, ele precisa receber um JWT no header de Authorization. E nesse serviço, será feito a sua validação, antes de realizar qualquer operação. Para fazer isso, precisaremos escrever um middleware que receberá essa requisição para ser tratado esse token a parte. 
+* Teremos um serviço fictício de transações bancárias. Ele receberá um JSON de transação. Mas somente receber esse JSON não é o suficiente, ele precisa receber um JWT no header de Authorization. E nesse serviço, será feito a sua validação, antes de realizar qualquer operação. Para fazer isso, precisaremos escrever um middleware que receberá essa requisição para ser tratado esse token a parte.
 
 Esse é um dos problemas de se fazer desacoplamento de autenticação no Django, pois a gente perde uma base de usuários e também os middlewares de autenticação pra facilitar a nossa vida! Mas é possível de se fazer. _Shit happens._
 
@@ -174,4 +174,18 @@ Perfeito. Em urls.py no root da aplicação, vamos adicionar 3 endpoints dentro 
 
 {% gist carlosdamazio/c03aa3f489eb1b568e857ae0c7337ce9 %}
 
-Agora, vamos fazer o código rodar. Não vamos rodar o código diretamente, pois precisaríamos do banco de dados. Bora criar o nosso docker-compose.yml
+Agora, vamos fazer o código rodar. Não vamos rodar o código diretamente, pois precisaríamos do banco de dados do nosso microsserviços. 
+
+O Dockerfile dessa aplicação pode ser feito da seguinte forma, dentro da raíz do projeto auth:
+
+{% gist carlosdamazio/b447c4725b0f17cb2d4545efe1ac71bd %}
+
+Bora criar o nosso docker-compose.yml da seguinte forma, no mesmo diretório:
+
+{% gist carlosdamazio/c6813c2de7e78a3d6b94301c8734d1b7 %}
+
+E...
+
+    (.venv) $ docker-compose up -d --build
+
+Tadá!
