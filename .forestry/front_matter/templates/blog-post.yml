@@ -34,4 +34,3 @@ fields:
   label: description
 pages:
 - _posts/2019-11-22-re-post-monitore-seus-containers-com-cadvisor-com-ou-sem-integração-do-prometheus.md
-- _posts/auth-2-2-desacoplando-serviços-no-drf-autenticação-com-jwt.md
